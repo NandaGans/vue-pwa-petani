@@ -2,12 +2,6 @@ import { useAuthStore } from '@/stores/authStore'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Dashboard from '@/views/Admin/Dashboard/DashboardPage.vue'
-/*import AddActivity from '@/views/User/AddActivity.vue'
-import ActivityList from '@/views/User/ActivityList.vue'
-import ActivityCalendar from '@/views/User/ActivityCalendar.vue'
-import SettingsApp from '@/views/User/SettingsApp.vue'
-
-*/
 
 // router/index.js
 
@@ -54,19 +48,37 @@ const routes = [
         path: 'user/edit/:id',
         name: 'UserEdit',
         component: () => import('@/views/Admin/ManajemenUser/UserEdit.vue')
+      },
+
+      //Verifikasi User
+      {
+        path: 'verifikasi',
+        name: 'VerifikasiIndex',
+        component: () => import('@/views/Admin/VerifikasiUser/VerifikasiIndex.vue')
+      },
+
+      //Laporan User
+      {
+        path: 'laporan',
+        name: 'LaporanIndex',
+        component: () => import('@/views/Admin/LaporanUser/LaporanIndex.vue')
+      },
+
+      //Pengaturan Admin
+      {
+        path: 'pengaturan',
+        name: 'PengaturanAdmin',
+        component: () => import('@/views/Admin/Pengaturan/PengaturanAdmin.vue')
       }
-
-
     ]
-  },
+    },
 
-  // 👤 Dashboard User (Petani)
-  {
-    
-    path: '/user',
-    component: () => import('@/components/Layouts/AppLayout.vue'),
-    meta: { requiresAuth: true, role: 'user' },
-    children: [
+      //Verifikasi User
+    {
+      path: '/user',
+      component: () => import('@/components/Layouts/AppLayout.vue'),
+      meta: { requiresAuth: true, role: 'user' },
+      children: [
       {
         path: '',
         name: 'UserDashboard',

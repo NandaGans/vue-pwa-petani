@@ -1,0 +1,6 @@
+# Semua file teks otomatis distandarisasi
+* text=auto
+
+# Khusus file JSON/JS paksa LF saja
+*.json text eol=lf
+*.js   text eol=lf
